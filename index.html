@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Excursões</title>
+    <link rel="stylesheet" href="./src/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+
+
+</head>
+<body>
+
+        <h1>Modelo para Excursão</h1>
+    <form id="formulario" action="modelPrint.html" method="get">
+        <!-- <label for="tituloInput">Título do Documento:</label> -->
+        <!-- <input type="text" id="tituloInput" name="titulo"><br> -->
+
+        <!-- <label for="conteudoInput">Conteúdo do Documento:</label>
+        <textarea id="conteudoInput" name="conteudo"></textarea><br> -->
+
+        <!-- Formulário para dados gerais -->
+        <div id="formularioGeral">
+            <h2>Dados Da Excursão</h2>
+            <label for="excursaoInput">Excursão:</label>
+            <input type="text" id="excursaoInput" name="excursao"><br>
+
+            <label for="contatosInput">Contatos:</label>
+            <input type="text" id="contatosInput" name="contatos"><br>
+
+            <label for="localizacaoInput">Localização:</label>
+            <input type="text" id="localizacaoInput" name="localizacao"><br>
+
+            <label for="observacaoInput">Observação:</label>
+            <textarea id="observacaoInput" name="observacao"></textarea><br>
+        </div>
+
+        <!-- Formulário para dados do destinatário -->
+        <div id="formularioDestinatario">
+            <h2>Dados do Destinatário</h2>
+            <label for="destinatarioInput">Destinatário:</label>
+            <input type="text" id="destinatarioInput" name="destinatario"><br>
+
+            <label for="contatosDestInput">Contatos:</label>
+            <input type="text" id="contatosDestInput" name="contatosDest"><br>
+
+            <label for="localizacaoDestInput">Localização:</label>
+            <input type="text" id="localizacaoDestInput" name="localizacaoDest"><br>
+
+            <label for="observacaoDestInput">Observação:</label>
+            <textarea id="observacaoDestInput" name="observacaoDest"></textarea><br>
+        </div>
+
+        <button type="submit" id="preencherBtn">Enviar</button>
+    </form>
+
+    <script src="./src/script.js"></script>
+    
+</body>
+</html>

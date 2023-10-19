@@ -1,0 +1,67 @@
+.documento {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    padding: 20mm;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.infoRemetente {
+    margin-top: -1rem;
+    color: black;
+}
+
+
+h1 {
+    color: #333;
+}
+
+/* p {
+    color: #000000;
+} */
+
+button {
+    display: block;
+    margin: 20px auto;
+}
+
+/* Estilos específicos para impressão */
+/* @media print {
+    .documento {
+        margin-top: 2rem;
+        font-size: 12pt;
+        width: 790px;
+        height: 1160px;
+    }
+
+   .section01Excursao{
+        display: flex;
+   }
+
+    .titleExcursão{
+        background-color: #333;
+    }
+
+    h2 {
+        color: black;
+        background-color: #fff;
+    }
+
+    span {
+        color: red;
+    }
+
+    button {
+        display: none;
+    }
+
+    .nameExcursao{
+        background-color: #dbdbdb;
+                        width: 400px;
+                        margin-left: 10rem;
+                        text-align: center;
+                        border-radius: 30px;
+                        padding-left: 1rem;
+                        padding-right: 1rem;
+    }
+} */

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imprimir Documento</title>
+    <link rel="stylesheet" href="./stylesPrint.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    
+</head>
+<body>
+    
+    <div id="documento" class="documento">
+        <div class="containerInfoRemetente">
+            <h3>Remetente</h3>
+            <p class="infoRemetente">Ind. e Com. de Confecções Xavier Ltda <br/>
+                Av. Bela Vista (Rod PE-160), 1320 - Bairro: Bela Vista  CEP: 55195-500 <br/>
+                Santa Cruz do Capibaribe - PE  <br/>
+                Fone: (81) 37598300</p> 
+        </div>
+        <!-- <h1 id="titulo"></h1>
+        <p id="conteudo"></p> -->
+        <div id="formularioGeral">
+            <div class="section01Excursao" style="display: flex;">
+                <!-- <h2>Dados Da Excursão</h2> -->
+                <div id="titleExcursao" style="display: flex; align-items: center;"><img src="./img/onibus-icon.png" alt="img" style="margin-right: 0.5rem;"><h1 >Excursão:</h1></div> 
+                <div id="nameExcursao"><h1 id="excursao"></h1></div>
+            </div>
+
+            <div class="containerInfoExcursao">
+                <div class="infoExcursao"><img src="./img/whatsapp-icon.png" alt="contatoIMG"> <span    id="contatos"></span></div>
+
+                <div class="infoExcursao"><img src="./img/local-icon.png" alt="local-Img"><h4 style="margin-left: 0.4rem;">Moda Center:</h4 style="margin-left: 0.4rem;"> <span id="localizacao"></span></div>
+
+                <div class="infoExcursao"><h3>Observação:</h3> <span id="observacao"></span></div>
+            </div>
+        </div>
+
+        <!-- <h1 class="titleDestinatario">Destinatário</h1> -->
+        <div class="containerInfoDestinatario" id="formularioDestinatario">
+            <div class="infoDestinatario"><h3>Destinatário:</h3> <span id="destinatario"></span></div>
+            <div class="infoDestinatario"><img src="./img/phone-icon.png" alt="contato"> <span id="contatosDest"></span></div>
+            <div class="infoDestinatario"><img src="./img/local-icon.png" alt="local-Img"> <span id="localizacaoDest"></span></div>
+            <div class="infoDestinatario"><h3>Observação:</h3> <span id="observacaoDest"></span></div>
+        </div>
+    </div>
+
+    <button id="imprimirBtn" onclick="imprimirDocumento()">Gerar PDF para Imprimir</button>
+    <button id="voltarBtn">Voltar à Página Inicial</button>
+
+<script>
+    // Adicione um ouvinte de eventos para o clique no botão
+    document.getElementById("voltarBtn").addEventListener("click", function () {
+        // Redirecione para a página inicial (index.html)
+        window.location.href = "../../index.html";
+    });
+</script>
+    <script src="../script.js" defer></script>
+</body>
+</html>
