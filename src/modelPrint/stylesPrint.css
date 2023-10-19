@@ -38,7 +38,7 @@ img{
 .infoDestinatario{
     display: flex;
     align-items: center;
-    line-height: 0.1rem;
+    line-height: 2rem;
     margin-left: 1rem;
     margin-bottom: 1rem;
     font-size: 26px;
@@ -92,12 +92,14 @@ span{
 }
 
 #observacao {
+    word-wrap: break-word;
     color: #E30613;
     font-size: 27px;
     margin-top: 0.2rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 #observacaoDest {
+    word-wrap: break-word;
     color: #E30613;
     font-size: 26px;
     margin-top: 0.5rem;
@@ -119,7 +121,13 @@ span{
    .containerInfoExcursao {
     background-color: #ebebeb !important;}
    
-
+    #observacaoDest {
+        word-wrap: break-word;
+        color: #E30613;
+        font-size: 26px;
+        margin-top: 0.5rem;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
    
 
     h2 {
