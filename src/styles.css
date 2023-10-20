@@ -11,6 +11,23 @@
     color: black;
 }
 
+h1{
+    margin: auto;
+}
+
+form {
+    width: 800px;
+    margin: auto;
+}
+input {
+    width: 500px;
+    height: 30px;
+}
+
+textarea{
+    width: 500px;
+    height: 60px;
+}
 
 h1 {
     color: #333;
