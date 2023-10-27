@@ -14,9 +14,11 @@
 h1{
     margin: auto;
 }
-
+/* .AllContent{
+    justify-content: center;
+} */
 form {
-    width: 800px;
+    width: 500px;
     margin: auto;
 }
 input {
@@ -30,6 +32,7 @@ textarea{
 }
 
 h1 {
+    text-align: center;
     color: #333;
 }
 
