@@ -118,6 +118,14 @@ span{
         display: flex;
    }
 
+   #nameModaCenter{
+    width: 167px;
+   }
+
+   #localizacao {
+    word-wrap: break-word;
+   }
+
    .containerInfoExcursao {
     background-color: #ebebeb !important;}
    
