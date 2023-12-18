@@ -6,6 +6,7 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
+
 .infoRemetente {
     margin-top: -1rem;
     color: black;
@@ -19,16 +20,21 @@
 
 h1{
     margin: auto;
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
 }
+
 /* .AllContent{
     justify-content: center;
 } */
 form {
-    border: 2px solid #888888;
+    /* border: 2px solid #888888; */
     width: 600px;
     background-color: #e2e2e2;
     padding: 1em;
     margin: auto;
+
 }
 
 input {
@@ -40,10 +46,6 @@ textarea{
     margin-bottom: 1rem;
 }
 
-h1 {
-    text-align: center;
-    color: #333;
-}
 
 /* p {
     color: #000000;
