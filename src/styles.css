@@ -11,6 +11,12 @@
     color: black;
 }
 
+#formularioExcursao {
+    
+    width: auto;
+    /* padding: 1rem; */
+}
+
 h1{
     margin: auto;
 }
@@ -18,17 +24,20 @@ h1{
     justify-content: center;
 } */
 form {
-    width: 500px;
+    border: 2px solid #888888;
+    width: 600px;
+    background-color: #e2e2e2;
+    padding: 1em;
     margin: auto;
 }
+
 input {
-    width: 500px;
-    height: 30px;
+    margin-bottom: 1rem;
 }
 
 textarea{
-    width: 500px;
-    height: 60px;
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
 h1 {

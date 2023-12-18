@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excursões rotadomar</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <link rel="shortcut icon" href="./src/modelPrint/img/moda-center-img.png" type="image/x-icon">
     <link rel="stylesheet" href="./src/styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
@@ -22,35 +25,59 @@
         <textarea id="conteudoInput" name="conteudo"></textarea><br> -->
 
         <!-- Formulário para dados gerais -->
-        <div id="formularioGeral">
+        <div id="formularioExcursao">
             <h2>Dados Da Excursão</h2>
-            <label for="excursaoInput">Excursão:</label><br>
-            <input type="text" id="excursaoInput" name="excursao"><br>
 
-            <label for="contatosInput">Contatos:</label><br>
-            <input type="text" id="contatosInput" name="contatos"><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Excursão:</label>
+                  <input type="text" class="form-control" id="excursaoInput" name="excursao" placeholder="Nome da excursão" aria-label="Nome da excursão">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Contato:</label>
+                  <input type="text" class="form-control" id="contatosInput" name="contatos" placeholder="(99) 9 9999-9999 / (99) 9 9999-9999" aria-label="(99) 9 9999-9999">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <label for="localizacaoInput" class="form-label">Localização:</label>
+              <input type="text" class="form-control" id="localizacaoInput" name="localizacao" placeholder="Vaga e setor" aria-label="Vaga e setor">
+            </div>
 
-            <label for="localizacaoInput">Localização:</label><br>
-            <input type="text" id="localizacaoInput" name="localizacao"><br>
 
-            <label for="observacaoInput">Observação:</label><br>
-            <textarea id="observacaoInput" name="observacao"></textarea><br>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Observações:" id="observacaoInput"  name="observacao" style="height: 100px"></textarea>
+                <label for="observacaoInput">Observações:</label>
+            </div>
+
         </div>
 
         <!-- Formulário para dados do destinatário -->
         <div id="formularioDestinatario">
             <h2>Dados do Destinatário</h2>
-            <label for="destinatarioInput">Destinatário:</label><br>
-            <input type="text" id="destinatarioInput" name="destinatario"><br>
+            <div class="row">
 
-            <label for="contatosDestInput">Contatos:</label><br>
-            <input type="text" id="contatosDestInput" name="contatosDest"><br>
+                <div class="col-md-12">
+                    <label class="form-label" for="destinatarioInput">Destinatário:</label>
+                  <input type="text" class="form-control" id="destinatarioInput" name="destinatario" placeholder="Nome do cliente" aria-label="Nome do cliente">
+                </div>
 
-            <label for="localizacaoDestInput">Localização:</label><br>
-            <input type="text" id="localizacaoDestInput" name="localizacaoDest"><br>
+                <div class="col-md-6">
+                    <label class="form-label" for="localizacaoDestInput">Cidade do destinatário:</label>
+                  <input type="text" class="form-control" id="localizacaoDestInput" name="localizacaoDest" placeholder="Cidade - UF" aria-label="Cidade - UF">
+                  </div>
 
-            <label for="observacaoDestInput">Observação:</label><br>
-            <textarea id="observacaoDestInput" name="observacaoDest"></textarea><br>
+                <div class="col-md-6">
+                    <label class="form-label" for="contatosDestInput">Contatos:</label>
+                  <input type="text" class="form-control" id="contatosDestInput" name="contatosDest" placeholder="(99) 9 9999-9999 / (99) 9 9999-9999" aria-label="(99) 9 9999-9999">
+                </div>
+              
+            </div>
+
+
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Observações:" id="observacaoDestInput" name="observacaoDest" style="height: 100px"></textarea>
+                <label for="observacaoInput">Observações:</label>
+            </div>
         </div>
 
         <button type="submit" id="preencherBtn">Enviar</button>
