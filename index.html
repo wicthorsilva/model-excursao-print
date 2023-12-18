@@ -25,59 +25,77 @@
         <textarea id="conteudoInput" name="conteudo"></textarea><br> -->
 
         <!-- Formulário para dados gerais -->
-        <div id="formularioExcursao">
-            <h2>Dados Da Excursão</h2>
+        <div class="contentForms">
+          <div id="formularioExcursao">
+              <h2>Dados Da Excursão</h2>
 
-            <div class="row">
+                <div class="row">
+                  <div class="col-md-6">
+                      <label class="form-label">Excursão:</label>
+                    <input type="text" class="form-control" id="excursaoInput" name="excursao" placeholder="Nome da excursão" aria-label="Nome da excursão">
+                  </div>
+                  <div class="col-md-6">
+                      <label class="form-label">Contato:</label>
+                    <input type="text" class="form-control" id="contatosInput" name="contatos" placeholder="(99) 9 9999-9999 / (99) 9 9999-9999" aria-label="(99) 9 9999-9999">
+                  </div>
+                
+
+
                 <div class="col-md-6">
-                    <label class="form-label">Excursão:</label>
-                  <input type="text" class="form-control" id="excursaoInput" name="excursao" placeholder="Nome da excursão" aria-label="Nome da excursão">
+                  <label for="localizacaoInput" class="form-label">Vaga e setor:</label>
+                  <input type="text" class="form-control" id="localizacaoInput" name="localizacao" placeholder="Vaga e setor" aria-label="Vaga e setor">
                 </div>
+
                 <div class="col-md-6">
-                    <label class="form-label">Contato:</label>
-                  <input type="text" class="form-control" id="contatosInput" name="contatos" placeholder="(99) 9 9999-9999 / (99) 9 9999-9999" aria-label="(99) 9 9999-9999">
+                  <label for="localizacaoInput" class="form-label">Selecione a cor do setor</label>
+                  <select class="form-select " aria-label="Default select example">
+                    <option selected>Setor</option>
+                    <option value="laranja">Laranja</option>
+                    <option value="verde">Verde</option>
+                    <option value="branco">Branco</option>
+                    <option value="amarelo">Amarelo</option>
+                    <option value="vermelho">Vermelho</option>
+                    <option value="azul">Azul</option>
+                  </select>
                 </div>
               </div>
-              <div class="col-md-8">
-                <label for="localizacaoInput" class="form-label">Localização:</label>
-              <input type="text" class="form-control" id="localizacaoInput" name="localizacao" placeholder="Vaga e setor" aria-label="Vaga e setor">
-            </div>
 
 
-            <div class="form-floating">
-                <textarea class="form-control" placeholder="Observações:" id="observacaoInput"  name="observacao" style="height: 100px"></textarea>
-                <label for="observacaoInput">Observações:</label>
-            </div>
+              <div class="form-floating">
+                  <textarea class="form-control" placeholder="Observações:" id="observacaoInput"  name="observacao" style="height: 100px"></textarea>
+                  <label for="observacaoInput">Observações:</label>
+              </div>
 
-        </div>
+          </div>
 
-        <!-- Formulário para dados do destinatário -->
-        <div id="formularioDestinatario">
-            <h2>Dados do Destinatário</h2>
-            <div class="row">
+          <!-- Formulário para dados do destinatário -->
+          <div id="formularioDestinatario">
+              <h2>Dados do Destinatário</h2>
+              <div class="row">
 
-                <div class="col-md-12">
-                    <label class="form-label" for="destinatarioInput">Destinatário:</label>
-                  <input type="text" class="form-control" id="destinatarioInput" name="destinatario" placeholder="Nome do cliente" aria-label="Nome do cliente">
-                </div>
-
-                <div class="col-md-6">
-                    <label class="form-label" for="localizacaoDestInput">Cidade do destinatário:</label>
-                  <input type="text" class="form-control" id="localizacaoDestInput" name="localizacaoDest" placeholder="Cidade - UF" aria-label="Cidade - UF">
+                  <div class="col-md-12">
+                      <label class="form-label" for="destinatarioInput">Destinatário:</label>
+                    <input type="text" class="form-control" id="destinatarioInput" name="destinatario" placeholder="Nome do cliente" aria-label="Nome do cliente">
                   </div>
 
-                <div class="col-md-6">
-                    <label class="form-label" for="contatosDestInput">Contatos:</label>
-                  <input type="text" class="form-control" id="contatosDestInput" name="contatosDest" placeholder="(99) 9 9999-9999 / (99) 9 9999-9999" aria-label="(99) 9 9999-9999">
-                </div>
-              
-            </div>
+                  <div class="col-md-6">
+                      <label class="form-label" for="localizacaoDestInput">Cidade do destinatário:</label>
+                    <input type="text" class="form-control" id="localizacaoDestInput" name="localizacaoDest" placeholder="Cidade - UF" aria-label="Cidade - UF">
+                    </div>
+
+                  <div class="col-md-6">
+                      <label class="form-label" for="contatosDestInput">Contatos:</label>
+                    <input type="text" class="form-control" id="contatosDestInput" name="contatosDest" placeholder="(99) 9 9999-9999 / (99) 9 9999-9999" aria-label="(99) 9 9999-9999">
+                  </div>
+                
+              </div>
 
 
-            <div class="form-floating">
-                <textarea class="form-control" placeholder="Observações:" id="observacaoDestInput" name="observacaoDest" style="height: 100px"></textarea>
-                <label for="observacaoInput">Observações:</label>
-            </div>
+              <div class="form-floating">
+                  <textarea class="form-control" placeholder="Observações:" id="observacaoDestInput" name="observacaoDest" style="height: 100px"></textarea>
+                  <label for="observacaoInput">Observações:</label>
+              </div>
+          </div>
         </div>
 
         <button type="submit" id="preencherBtn">Enviar</button>
