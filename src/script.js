@@ -3,6 +3,7 @@ const parametros = [
     "observacao", "destinatario", "contatosDest", "localizacaoDest", "observacaoDest"
 ];
 
+
 document.addEventListener("DOMContentLoaded", function () {
     // Obter os parâmetros da URL
     const params = new URLSearchParams(window.location.search);

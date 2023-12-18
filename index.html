@@ -27,14 +27,14 @@
         <!-- Formulário para dados gerais -->
         <div class="contentForms">
           <div id="formularioExcursao">
-              <h2>Dados Da Excursão</h2>
+              <h3>Dados Da Excursão</h3>
 
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                       <label class="form-label">Excursão:</label>
                     <input type="text" class="form-control" id="excursaoInput" name="excursao" placeholder="Nome da excursão" aria-label="Nome da excursão">
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                       <label class="form-label">Contato:</label>
                     <input type="text" class="form-control" id="contatosInput" name="contatos" placeholder="(99) 9 9999-9999 / (99) 9 9999-9999" aria-label="(99) 9 9999-9999">
                   </div>
@@ -47,15 +47,15 @@
                 </div>
 
                 <div class="col-md-6">
-                  <label for="localizacaoInput" class="form-label">Selecione a cor do setor</label>
-                  <select class="form-select " aria-label="Default select example">
-                    <option selected>Setor</option>
-                    <option value="laranja">Laranja</option>
-                    <option value="verde">Verde</option>
-                    <option value="branco">Branco</option>
-                    <option value="amarelo">Amarelo</option>
-                    <option value="vermelho">Vermelho</option>
-                    <option value="azul">Azul</option>
+                  <label for="corSetor" class="form-label">Selecione a cor do setor</label>
+                  <select id="corSetor" class="form-select " aria-label="Default select example" onchange="corDoSetor()">
+                    <option style="background-color: #5e5e5e;" selected>Setor</option>
+                    <option style="background-color: #FF9933;" value="laranja">Laranja</option>
+                    <option style="background-color: #33CC33;" value="verde">Verde</option>
+                    <option style="background-color: #fff;" value="branco">Branco</option>
+                    <option style="background-color: #FFFF00;" value="amarelo">Amarelo</option>
+                    <option style="background-color: #FF0000;" value="vermelho">Vermelho</option>
+                    <option style="background-color: #00CCFF;" value="azul">Azul</option>
                   </select>
                 </div>
               </div>
@@ -70,7 +70,7 @@
 
           <!-- Formulário para dados do destinatário -->
           <div id="formularioDestinatario">
-              <h2>Dados do Destinatário</h2>
+              <h3>Dados do Destinatário</h3>
               <div class="row">
 
                   <div class="col-md-12">

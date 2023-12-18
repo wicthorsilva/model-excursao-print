@@ -10,6 +10,7 @@ img{
     font-weight: 600;
 }
 
+
 .containerInfoRemetente{
     margin-left: 1rem;
 }
@@ -75,12 +76,13 @@ span{
 }
 
 #nameExcursao {
-    background-color: #ebebeb;
+    background-color: #FFFF00;
+    border: 1px solid #afafaf;
     color: #27348B;
-    width: 350px;
+    width: 400px;
     height: 60px;
     align-items: center;
-    margin-left: 6rem;
+    margin-left: 2.5rem;
     text-align: center;
     border-radius: 30px;
     padding-left: 1rem;
