@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,56 +8,137 @@
     <link rel="stylesheet" href="./stylesPrint.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
-    
+
 </head>
+
 <body>
-    
+
     <div id="documento" class="documento">
-        <div class="containerInfoRemetente">
-            <h3>Remetente</h3>
-            <p class="infoRemetente">Ind. e Com. de Confecções Xavier Ltda <br/>
-                Av. Bela Vista (Rod PE-160), 1320 - Bairro: Bela Vista  CEP: 55195-500 <br/>
-                Santa Cruz do Capibaribe - PE  <br/>
-                Fone: (81) 37598300</p> 
+        <div class="headerPage">
+            <div class="containerInfoRemetente">
+                <h3>Remetente</h3>
+                <p class="infoRemetente">Ind. e Com. de Confecções Xavier Ltda <br />
+                    Av. Bela Vista (Rod PE-160), 1320<br />
+                    Santa Cruz do Capibaribe - PE <br />
+                    Fone: (81) 37598300</p>
+                <p class="numberPedido">Pedido: <strong id="numberPedido"></strong></p>
+            </div>
+            <div class="containerImgExcursao">
+                <img id="image" class="imgExcursao" src="" alt="img">
+            </div>
         </div>
-        <!-- <h1 id="titulo"></h1>
-        <p id="conteudo"></p> -->
         <div id="formularioExcursao">
+
+            <div class="lojaInfo">
+                <div class="identificLoja" style="display: flex;">
+                    <span id="nameloja"></span>
+                    <span id="vendedor"></span>
+                </div>
+            </div>
             <div class="section01Excursao" style="display: flex;">
                 <!-- <h2>Dados Da Excursão</h2> -->
-                <div id="titleExcursao" style="display: flex; align-items: center;"><img src="./img/onibus-icon.png" alt="img" style="margin-right: 0.5rem;"><h1 >Excursão:</h1></div> 
-                <div id="nameExcursao"><h1 id="excursao"></h1></div>
+                <div id="titleExcursao" style="display: flex; align-items: center;"><img class="imgIcon"
+                        src="./img/onibus-icon.png" alt="img" style="margin-right: 0.5rem;">
+                    <h1>Excursão:</h1>
+                </div>
+                <div class="containerNameExcursao" id="nameExcursao">
+                    <h1 id="excursao"></h1>
+                </div>
             </div>
 
             <div class="containerInfoExcursao">
-                <div class="infoExcursao"><img src="./img/whatsapp-icon.png" alt="contatoIMG"> <span    id="contatos"></span></div>
+                <div class="infoExcursao"><img src="./img/whatsapp-icon.png" alt="contatoIMG"> <span
+                        id="contatos"></span></div>
 
-                <div class="infoExcursao"><img src="./img/local-icon.png" alt="local-Img"><h4 style="margin-left: 0.4rem;" id="nameModaCenter">Moda Center:</h4 style="margin-left: 0.4rem;"> <span id="localizacao"></span></div>
+                <div class="infoExcursao"><img src="./img/local-icon.png" alt="local-Img">
+                    <h4 style="margin-left: 0.4rem;" id="nameModaCenter"></h4 style="margin-left: 0.4rem;"> <span
+                        id="localizacao"></span>
+                </div>
 
-                <div class="infoExcursao"><h3>Observação:</h3> <span id="observacao"></span></div>
+                <div class="infoExcursao">
+                    <h3>Observação:</h3> <span id="observacao"></span>
+                </div>
             </div>
         </div>
 
         <!-- <h1 class="titleDestinatario">Destinatário</h1> -->
         <div class="containerInfoDestinatario" id="formularioDestinatario">
-            <div class="infoDestinatario"><h3>Destinatário:</h3> <span id="destinatario"></span></div>
-            <div class="infoDestinatario"><img src="./img/phone-icon.png" alt="contato"> <span id="contatosDest"></span></div>
-            <div class="infoDestinatario"><img src="./img/local-icon.png" alt="local-Img"> <span id="localizacaoDest"></span></div>
-            <div class="infoDestinatario"><h3>Observação:</h3> <span id="observacaoDest"></span></div>
+            <div class="infoDestinatario">
+                <h3>Destinatário:</h3> <span id="destinatario"></span>
+            </div>
+            <div class="infoDestinatario"><img src="./img/phone-icon.png" alt="contato"> <span id="contatosDest"></span>
+            </div>
+            <div class="infoDestinatario"><img src="./img/local-icon.png" alt="local-Img"> <span
+                    id="localizacaoDest"></span></div>
+            <div class="infoDestinatario">
+                <h3>Observação:</h3> <span id="observacaoDest"></span>
+            </div>
         </div>
     </div>
     <div class="buttons">
-        <button id="voltarBtn">Voltar à Página Inicial</button>
+        <button id="editarBtn">Editar</button>
+        <button id="voltarBtn">Página Inicial</button>
         <button id="imprimirBtn" onclick="imprimirDocumento()">Gerar PDF para Imprimir</button>
     </div>
 
-<script>
-    // Adicione um ouvinte de eventos para o clique no botão
-    document.getElementById("voltarBtn").addEventListener("click", function () {
-        // Redirecione para a página inicial (index.html)
-        window.location.href = "../../index.html";
-    });
-</script>
+    <script>
+
+        // Extraindo parâmetros da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedLoja = urlParams.get('nameloja');
+        const selectedCorSetor = urlParams.get('corSetor');
+
+        // Selecionando os elementos onde as cores serão aplicadas
+        const lojaInfoElement = document.querySelector(".lojaInfo");
+        const nameExcursaoElement = document.querySelector(".containerNameExcursao");
+
+        // Definição das cores para cada loja
+        const coresLoja = {
+            "mitchs": "#000094", // Marinho escuro
+            "caruaru-centro": "#8A2BE2", // azul
+            "caruaru-polo": "#df745e", // Terracota
+            "toritama-br": "#FF69B4", // Rosa
+            "toritama-parque": "#e159de", // Bege
+            "mega-loja": "#89443d", // Marron
+            "ecommerce": "#000000", // Preto
+            "loja-11": "#db9186", // Violeta
+            "moda": "#808080", // Cinza
+        };
+
+        // Definição das cores para o setor
+        const coresSetor = {
+            "orange": "#FFA500",   // Laranja
+            "green": "#99db49",    // Verde
+            "lightgray": "#F3F3F3", // Cinza Claro
+            "yellow": "#FFFF00",   // Amarelo
+            "red": "#FF0000",      // Vermelho
+            "blue": "#40CFFF"      // Azul
+        };
+
+
+        // Aplicando a cor de fundo na lojaInfo
+        if (selectedLoja && coresLoja[selectedLoja]) {
+            lojaInfoElement.style.backgroundColor = coresLoja[selectedLoja];
+        }
+
+        // Aplicando a cor de fundo no nameExcursao
+        if (selectedCorSetor && coresSetor[selectedCorSetor]) {
+            nameExcursaoElement.style.backgroundColor = coresSetor[selectedCorSetor];
+        } else {
+            console.warn("Parâmetro corSetor não encontrado ou inválido:", selectedCorSetor);
+        }
+
+        document.getElementById("editarBtn").addEventListener("click", function () {
+            window.history.back();
+        });
+
+
+        // Adicione um ouvinte de eventos para o clique no botão
+        document.getElementById("voltarBtn").addEventListener("click", function () {
+            window.location.href = "../../index.html";
+        });
+    </script>
     <script src="../script.js" defer></script>
 </body>
+
 </html>
