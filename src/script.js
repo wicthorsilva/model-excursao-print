@@ -78,7 +78,7 @@ function gerarPDF() {
     Promise.all(imagePromises).then(() => {
         html2pdf(element, {
             margin: 10,
-            filename: `${document.getElementById("destinatario").textContent + " " + "Excursao" || "excursao"}.pdf`,
+            filename: `${document.getElementById("destinatario").textContent} ${document.getElementById("vendedor").textContent ? "- " + document.getElementById("vendedor").textContent : ""} - Excursao.pdf`,
             html2canvas: {
                 scale: 2,
                 scrollX: 0,
