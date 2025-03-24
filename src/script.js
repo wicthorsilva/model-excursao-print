@@ -1,17 +1,29 @@
 const parametros = [
-    "excursao", "contatos", "localizacao",
+    "nameloja", "vendedor", "numberPedido", "image", "excursao", "corSetor", "contatos", "localizacao",
     "observacao", "destinatario", "contatosDest", "localizacaoDest", "observacaoDest"
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Obter os parâmetros da URL
     const params = new URLSearchParams(window.location.search);
 
-    // Preencher o documento com os valores dos parâmetros
     parametros.forEach(param => {
-        document.getElementById(param).textContent = params.get(param) || "";
+        const element = document.getElementById(param);
+        if (element) {
+            if (param === "image") {
+                const img = new Image();
+                img.onload = function () {
+                    element.src = params.get(param) || "";
+                    // Uma vez carregada a imagem, chamamos a função de gerar o PDF
+                    document.getElementById("imprimirBtn").disabled = false; // Ativa o botão para gerar PDF
+                };
+                img.src = params.get(param) || "";
+            } else {
+                element.textContent = params.get(param) || "";
+            }
+        }
     });
 });
+
 
 function obterValorInput(id) {
     return document.getElementById(id).value;
@@ -19,7 +31,8 @@ function obterValorInput(id) {
 
 document.getElementById("formulario").addEventListener("submit", function (event) {
     const valores = parametros.reduce((acc, param) => {
-        acc[param] = obterValorInput(param + "Input");
+        const elemento = document.getElementById(param + "Input") || document.getElementById(param + "Select");
+        acc[param] = elemento ? elemento.value : "";
         return acc;
     }, {});
 
@@ -33,32 +46,62 @@ document.getElementById("formulario").addEventListener("submit", function (event
     event.preventDefault();
 });
 
+document.getElementById('corSetorSelect').addEventListener('change', function () {
+    const corEscolhida = this.value;
+    const nameExcursao = document.getElementById('nameExcursao');
 
-function gerarPDF(url) {
+    // Aplica a cor de fundo de acordo com a escolha do usuário
+    if (corEscolhida) {
+        nameExcursao.style.backgroundColor = corEscolhida;
+    } else {
+        nameExcursao.style.backgroundColor = ''; // Remove a cor se não houver seleção
+    }
+});
+
+
+function gerarPDF() {
     const element = document.getElementById("documento");
 
-    html2pdf(element, {
-        margin: 10,
-        filename: 'documento.pdf',
-        html2canvas: { scale: 2, scrollX: 0, scrollY: 0 },  // Adicione estas opções
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    }).then((pdf) => {
-        // Criar um blob com o conteúdo do PDF
-        const blob = pdf.output('blob');
+    // Garantir que as imagens estejam carregadas
+    const images = element.getElementsByTagName('img');
+    const imagePromises = Array.from(images).map(img => {
+        return new Promise((resolve, reject) => {
+            if (img.complete) {
+                resolve();
+            } else {
+                img.onload = resolve;
+                img.onerror = reject;
+            }
+        });
+    });
 
-        // Criar um blob URL
-        const blobURL = URL.createObjectURL(blob);
-
-        // Abrir o blob URL em uma nova janela
-        const newWindow = window.open(blobURL, '_blank');
-        
-        // Liberar o blob URL quando a janela for fechada
-        newWindow.addEventListener('beforeunload', () => URL.revokeObjectURL(blobURL));
+    Promise.all(imagePromises).then(() => {
+        html2pdf(element, {
+            margin: 10,
+            filename: `${document.getElementById("destinatario").textContent + " " + "Excursao" || "excursao"}.pdf`,
+            html2canvas: {
+                scale: 2,
+                scrollX: 0,
+                scrollY: 0,
+                useCORS: true, 
+                allowTaint: true
+            },
+            jsPDF: {
+                unit: 'mm',
+                format: 'a4',
+                orientation: 'portrait'
+            }
+        }).then((pdf) => {
+            const blob = pdf.output('blob');
+            const blobURL = URL.createObjectURL(blob);
+            const newWindow = window.open(blobURL, '_blank');
+            newWindow.addEventListener('beforeunload', () => URL.revokeObjectURL(blobURL));
+        });
+    }).catch((err) => {
+        console.error("Erro ao carregar imagens:", err);
     });
 }
 
 function imprimirDocumento() {
-    // window.print();  // Remova a chamada de impressão padrão
-    const url = `${window.location.origin}/src/modelPrint/modelPrint.html?${window.location.search}`;
-    gerarPDF(url);
+    gerarPDF();
 }
