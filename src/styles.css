@@ -98,8 +98,8 @@ button {
 }
 
 .btnModa{
-    /* position: absolute; */
-    /* top: 8px; */
+    position: absolute;
+    top: 8px;
     margin-left: 8px;
 }
 .btnModa a {
@@ -108,17 +108,13 @@ button {
     border-radius: 6px;
     color: #fff;
     cursor: pointer;
-    font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Ubuntu, sans-serif;
     outline: none;
     overflow: hidden;
-    padding: 6px 25px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-right: 1px;
+    padding-left: 1px;
     position: relative;
     text-align: center;
-    text-transform: none;
-    transform: translateZ(0);
-    transition: all .2s, box-shadow .08s ease-in;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
     width: 250px;
 }
