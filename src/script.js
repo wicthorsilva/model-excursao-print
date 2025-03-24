@@ -10,13 +10,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const element = document.getElementById(param);
         if (element) {
             if (param === "image") {
-                const img = new Image();
-                img.onload = function () {
-                    element.src = params.get(param) || "";
-                    // Uma vez carregada a imagem, chamamos a função de gerar o PDF
-                    document.getElementById("imprimirBtn").disabled = false; // Ativa o botão para gerar PDF
-                };
-                img.src = params.get(param) || "";
+                // Tenta carregar a imagem do sessionStorage
+                const imageSrc = sessionStorage.getItem("image") || params.get(param);
+                if (imageSrc) {
+                    element.src = imageSrc;
+                    document.getElementById("imprimirBtn").disabled = false; // Ativa botão de imprimir
+                }
             } else {
                 element.textContent = params.get(param) || "";
             }
@@ -30,39 +29,41 @@ function obterValorInput(id) {
 }
 
 document.getElementById("formulario").addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita o envio padrão do formulário
+
     const valores = parametros.reduce((acc, param) => {
         const elemento = document.getElementById(param + "Input") || document.getElementById(param + "Select");
         acc[param] = elemento ? elemento.value : "";
         return acc;
     }, {});
 
-    // Criar um objeto URLSearchParams
-    const searchParams = new URLSearchParams(valores);
+    // Verifica se um arquivo foi selecionado
+    const fileInput = document.getElementById("imageInput");
+    const file = fileInput.files[0];
 
-    // Redirecionar para a página modelPrint.html com os parâmetros
-    window.location.href = `src/modelPrint/modelPrint.html?${searchParams.toString()}`;
-
-    // Evitar o comportamento padrão de envio do formulário
-    event.preventDefault();
-});
-
-document.getElementById('corSetorSelect').addEventListener('change', function () {
-    const corEscolhida = this.value;
-    const nameExcursao = document.getElementById('nameExcursao');
-
-    // Aplica a cor de fundo de acordo com a escolha do usuário
-    if (corEscolhida) {
-        nameExcursao.style.backgroundColor = corEscolhida;
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            sessionStorage.setItem("image", e.target.result); // Armazena a imagem em base64
+            redirecionarComParametros(valores);
+        };
+        reader.readAsDataURL(file);
     } else {
-        nameExcursao.style.backgroundColor = ''; // Remove a cor se não houver seleção
+        sessionStorage.removeItem("image"); // Remove imagem do sessionStorage se nenhuma for selecionada
+        redirecionarComParametros(valores);
     }
 });
+
+function redirecionarComParametros(valores) {
+    const searchParams = new URLSearchParams(valores);
+    window.location.href = `src/modelPrint/modelPrint.html?${searchParams.toString()}`;
+}
 
 
 function gerarPDF() {
     const element = document.getElementById("documento");
 
-    // Garantir que as imagens estejam carregadas
+    // Garantir que todas as imagens estejam carregadas antes de gerar o PDF
     const images = element.getElementsByTagName('img');
     const imagePromises = Array.from(images).map(img => {
         return new Promise((resolve, reject) => {
