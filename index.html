@@ -18,121 +18,134 @@
 </head>
 
 <body class="bodyIndex">
-
-  <h2> Modelo para Excursão</h2>
-  <form id="formulario" action="modelPrint.html" method="get">
-    <div id="formularioExcursao">
-      <h4>Dados Da Loja</h4>
-      <div class="row">
-        <div class="col-md-4">
-          <label class="form-label">Loja:</label>
-          <select class="form-control" id="namelojaInput" name="nameloja">
-            <option value="">Selecione a Loja</option>
-            <option value="mitchs">MITCHS</option>
-            <option value="ecommerce">ECOMMERCE</option>
-            <option value="caruaru-centro">CARUARU CENTRO</option>
-            <option value="caruaru-polo">CARUARU POLO</option>
-            <option value="toritama-br">TORITAMA BR</option>
-            <option value="toritama-parque">TORITAMA PARQUE</option>
-            <option value="mega-loja">MEGA LOJA</option>
-            <option value="moda">MODA</option>
-            <option value="loja-11">LOJA 11</option>
-          </select>
-        </div>
-        <div class="col-md-4">
-          <label class="form-label">Vendedor:</label>
-          <input type="text" class="form-control" id="vendedorInput" name="vendedor" placeholder="Nome do Vendedor"
-            aria-label="Nome do Vendedor">
-        </div>
-        <div class="col-md-4">
-          <label class="form-label">Cod.Pedido:</label>
-          <input type="text" class="form-control" id="numberPedidoInput" name="numberPedido" placeholder="Nº Pedido/Fatura"
-            aria-label="Nº Pedido/Fatura">
-        </div>
-      </div>
-      <h4>Dados Da Excursão</h4>
-      <div class="row">
-        <div class="col-md-6">
-          <label class="form-label">Escolha a imagem:</label>
-          <input type="file" class="form-control" id="imageInput" name="image" accept="image/*">
-        </div>
-        <div class="col-md-6">
-          <label class="form-label">Cor do Setor:</label>
-          <select class="form-control" id="corSetorSelect" name="corSetor">
-              <option value="">Selecione a cor do setor</option>
-              <option style="background-color: #FFA500;" value="orange">Laranja</option>
-              <option style="background-color: #99db49;" value="green">Verde</option>
-              <option style="background-color: #F3F3F3;" value="lightgray">Branco</option>
-              <option style="background-color: #FFFF00;" value="yellow">Amarelo</option>
-              <option style="background-color: #FF0000;" value="red">Vermelho</option>
-              <option style="background-color: #40CFFF;" value="blue">Azul</option>
-          </select>
-      </div>
-        <div class="col-md-6">
-          <label class="form-label">Excursão:</label>
-          <input type="text" class="form-control" id="excursaoInput" name="excursao" placeholder="Nome da excursão"
-            aria-label="Nome da excursão">
-        </div>
-        <div class="col-md-6">
-          <label class="form-label">Contato:</label>
-          <input type="text" class="form-control" id="contatosInput" name="contatos"
-            placeholder="(99) 9 9999-9999 / (99) 9 9999-9999" aria-label="(99) 9 9999-9999">
-        </div>
-      </div>
-      <div class="col-md-12">
-        <label for="localizacaoInput" class="form-label">Localização:</label>
-        <input type="text" class="form-control" id="localizacaoInput" name="localizacao" placeholder="Vaga e setor"
-          aria-label="Vaga e setor">
-      </div>
-
-
-      <div class="form-floating">
-        <textarea class="form-control" placeholder="Observações:" id="observacaoInput" name="observacao"
-          style="height: 100px"></textarea>
-        <label for="observacaoInput">Horário De Saida e Observações:</label>
-      </div>
+  <section class="containerPage">
+    <div class="btnModa">
+      <a target="_blank" href="https://omodacenter.com.br/excursoes">Site Excursões Moda Center</a>
+      <iframe class="iframe" src="https://omodacenter.com.br/excursoes" 
+            width="550" 
+            height="90%" 
+            frameborder="0">
+    </iframe>
 
     </div>
+    <div class="containerForm">
+      <h2> Modelo para Excursão</h2>
+      <form id="formulario" action="modelPrint.html" method="get">
+        <div id="formularioExcursao">
+          <h4>Dados Da Loja</h4>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="form-label">Loja:</label>
+              <select class="form-control" id="namelojaInput" name="nameloja">
+                <option value="">Selecione a Loja</option>
+                <option value="mitchs">MITCHS</option>
+                <option value="ecommerce">ECOMMERCE</option>
+                <option value="caruaru-centro">CARUARU CENTRO</option>
+                <option value="caruaru-polo">CARUARU POLO</option>
+                <option value="toritama-br">TORITAMA BR</option>
+                <option value="toritama-parque">TORITAMA PARQUE</option>
+                <option value="mega-loja">MEGA LOJA</option>
+                <option value="moda">MODA</option>
+                <option value="loja-11">LOJA 11</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Vendedor:</label>
+              <input type="text" class="form-control" id="vendedorInput" name="vendedor" placeholder="Nome do Vendedor"
+                aria-label="Nome do Vendedor">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Cod.Pedido:</label>
+              <input type="text" class="form-control" id="numberPedidoInput" name="numberPedido"
+                placeholder="Nº Pedido/Fatura" aria-label="Nº Pedido/Fatura">
+            </div>
+          </div>
+          <h4>Dados Da Excursão</h4>
+          <div class="row">
+            <div class="col-md-6">
+              <label class="form-label">Escolha a imagem:</label>
+              <input type="file" class="form-control" id="imageInput" name="image" accept="image/*">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Cor do Setor:</label>
+              <select class="form-control" id="corSetorSelect" name="corSetor">
+                <option value="">Selecione a cor do setor</option>
+                <option style="background-color: #FFA500;" value="orange">Laranja</option>
+                <option style="background-color: #99db49;" value="green">Verde</option>
+                <option style="background-color: #F3F3F3;" value="lightgray">Branco</option>
+                <option style="background-color: #FFFF00;" value="yellow">Amarelo</option>
+                <option style="background-color: #FF0000;" value="red">Vermelho</option>
+                <option style="background-color: #40CFFF;" value="blue">Azul</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Excursão:</label>
+              <input type="text" class="form-control" id="excursaoInput" name="excursao" placeholder="Nome da excursão"
+                aria-label="Nome da excursão">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Contato:</label>
+              <input type="text" class="form-control" id="contatosInput" name="contatos"
+                placeholder="(99) 9 9999-9999 / (99) 9 9999-9999" aria-label="(99) 9 9999-9999">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label for="localizacaoInput" class="form-label">Localização:</label>
+            <input type="text" class="form-control" id="localizacaoInput" name="localizacao" placeholder="Vaga e setor"
+              aria-label="Vaga e setor">
+          </div>
 
-    <!-- Formulário para dados do destinatário -->
-    <div id="formularioDestinatario">
-      <h4>Dados do Destinatário</h4>
-      <div class="row">
 
-        <div class="col-md-12">
-          <label class="form-label" for="destinatarioInput">Destinatário:</label>
-          <input type="text" class="form-control" id="destinatarioInput" name="destinatario"
-            placeholder="Nome do cliente" aria-label="Nome do cliente">
+          <div class="form-floating">
+            <textarea class="form-control" placeholder="Observações:" id="observacaoInput" name="observacao"
+              style="height: 100px"></textarea>
+            <label for="observacaoInput">Horário De Saida e Observações:</label>
+          </div>
+
         </div>
 
-        <div class="col-md-6">
-          <label class="form-label" for="localizacaoDestInput">Cidade do destinatário:</label>
-          <input type="text" class="form-control" id="localizacaoDestInput" name="localizacaoDest"
-            placeholder="Cidade - UF" aria-label="Cidade - UF">
+        <!-- Formulário para dados do destinatário -->
+        <div id="formularioDestinatario">
+          <h4>Dados do Destinatário</h4>
+          <div class="row">
+
+            <div class="col-md-12">
+              <label class="form-label" for="destinatarioInput">Destinatário:</label>
+              <input type="text" class="form-control" id="destinatarioInput" name="destinatario"
+                placeholder="Nome do cliente" aria-label="Nome do cliente">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="localizacaoDestInput">Cidade do destinatário:</label>
+              <input type="text" class="form-control" id="localizacaoDestInput" name="localizacaoDest"
+                placeholder="Cidade - UF" aria-label="Cidade - UF">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="contatosDestInput">Contatos:</label>
+              <input type="text" class="form-control" id="contatosDestInput" name="contatosDest"
+                placeholder="(99) 9 9999-9999 / (99) 9 9999-9999" aria-label="(99) 9 9999-9999">
+            </div>
+
+          </div>
+
+
+          <div class="form-floating">
+            <textarea class="form-control" placeholder="Observações:" id="observacaoDestInput" name="observacaoDest"
+              style="height: 100px"></textarea>
+            <label for="observacaoInput">Observações:</label>
+          </div>
         </div>
 
-        <div class="col-md-6">
-          <label class="form-label" for="contatosDestInput">Contatos:</label>
-          <input type="text" class="form-control" id="contatosDestInput" name="contatosDest"
-            placeholder="(99) 9 9999-9999 / (99) 9 9999-9999" aria-label="(99) 9 9999-9999">
-        </div>
-
-      </div>
-
-
-      <div class="form-floating">
-        <textarea class="form-control" placeholder="Observações:" id="observacaoDestInput" name="observacaoDest"
-          style="height: 100px"></textarea>
-        <label for="observacaoInput">Observações:</label>
-      </div>
+        <button type="submit" id="preencherBtn">Enviar</button>
+      </form>
     </div>
-
-    <button type="submit" id="preencherBtn">Enviar</button>
-  </form>
-
-  <div class="btnModa">
-    <a target="_blank" href="https://omodacenter.com.br/excursoes">Excursões Moda Center</a>
-  </div>
+    
+    <div class="imgMapeamento">
+      <img src="./src/assets/img/setores-excursoes.png" alt="img">
+      <span style="color: #F3F3F3;">Abra a imagem em nova guia</span>
+    </div>
+  </section>
   <script src="./src/script.js"></script>
 
 </body>

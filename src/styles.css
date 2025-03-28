@@ -1,3 +1,44 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(./assets/img/modacenter1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; 
+}
+
+.containerPage{
+    display: flex;
+    justify-content: space-around;
+}
+
+.imgMapeamento img {
+    position: absolute;
+    margin-top: 2.5rem;
+    width: 220px;
+    height:500px;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+@media (max-width: 1360px) {
+    .imgMapeamento {
+        display: none;
+    }
+}
+@media (max-width: 1200px) {
+    .btnModa {
+        display: none;
+    }
+}
+
+
+
 .documento {
     font-family: Arial, sans-serif;
     margin: 0 auto;
@@ -14,9 +55,7 @@
 }
 
 #formularioExcursao {
-
     width: auto;
-    /* padding: 1rem; */
 }
 
 h2 {
@@ -26,11 +65,7 @@ h2 {
     margin-bottom: 1rem;
 }
 
-/* .AllContent{
-    justify-content: center;
-} */
 form {
-    /* border: 2px solid #888888; */
     width: 600px;
     background-color: #f9f9f9;
     padding: 1em;
@@ -98,13 +133,15 @@ button {
 }
 
 .btnModa{
-    position: absolute;
+    /* position: absolute; */
+    flex-direction: column;
     top: 8px;
     margin-left: 8px;
 }
 .btnModa a {
+    display: block;
     text-decoration: none;
-    background-color: #333333;
+    background-color: #ffa600;
     border-radius: 6px;
     color: #fff;
     cursor: pointer;
@@ -114,7 +151,7 @@ button {
     padding-bottom: 1px;
     padding-right: 1px;
     padding-left: 1px;
-    position: relative;
+    /* position: absolute; */
     text-align: center;
     width: 250px;
 }
