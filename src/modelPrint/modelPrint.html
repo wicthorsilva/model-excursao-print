@@ -31,8 +31,8 @@
 
             <div class="lojaInfo">
                 <div class="identificLoja" style="display: flex;">
-                    <span id="nameloja"></span>
-                    <span id="vendedor"></span>
+                    <span class="identificLojaSpan" id="nameloja"></span>
+                    <span class="identificVendedorSpan" id="vendedor"></span>
                 </div>
             </div>
             <div class="section01Excursao" style="display: flex;">
@@ -90,23 +90,26 @@
 
         // Selecionando os elementos onde as cores serão aplicadas
         const lojaInfoElement = document.querySelector(".lojaInfo");
+        const identificLoja = document.querySelector(".identificLojaSpan");
+        const identificVendedor = document.querySelector(".identificVendedorSpan");
         const nameExcursaoElement = document.querySelector(".containerNameExcursao");
 
         // Definição das cores para cada loja
         const coresLoja = {
-            "mitchs": "#0000a3", // Marinho escuro
-            "caruaru-centro": "#8e15ff", // azul
-            "caruaru-polo": "#ff4746", // Terracota
-            "toritama-br": "#ff21ed", // Rosa
-            "toritama-parque": "#606d80", // Bege
-            "mega-loja": "#7f440a", // Marron
-            "ecommerce": "#000000", // Preto
-            "moda": "#ff8d7b", // Cinza
+            "mitchs": "#0000a3",
+            "caruaru-centro": "#8e15ff",
+            "caruaru-polo": "#ff4746",
+            "toritama-br": "#ff21ed",
+            "toritama-parque": "#606d80",
+            "mega-loja": "#7f440a",
+            "ecommerce": "#000000",
+            "moda-rota": "#ff8d7b",
+            "moda-haus": "#00fffd",
         };
 
         // Definição das cores para o setor
         const coresSetor = {
-            "orange": "#FFA500",   // Laranja
+            "orange": "#ff9100",   // Laranja
             "green": "#00ad00",    // Verde
             "lightgray": "#F3F3F3", // Cinza Claro
             "yellow": "#FFFF00",   // Amarelo
@@ -118,7 +121,14 @@
         // Aplicando a cor de fundo na lojaInfo
         if (selectedLoja && coresLoja[selectedLoja]) {
             lojaInfoElement.style.backgroundColor = coresLoja[selectedLoja];
+
+            // Se a loja for "moda-haus", aplicar cor preta na fonte
+            if (selectedLoja === "moda-haus") {
+                identificLoja.style.color = "#000000";
+                identificVendedor.style.color = "#000000";
+            }
         }
+
 
         // Aplicando a cor de fundo no nameExcursao
         if (selectedCorSetor && coresSetor[selectedCorSetor]) {
