@@ -59,7 +59,16 @@
                 placeholder="Nº Pedido/Fatura" aria-label="Nº Pedido/Fatura">
             </div>
           </div>
-          <h4>Dados Da Excursão</h4>
+          <div style="display: flex; align-items: baseline;">
+            <h4>Dados Da Excursão</h4>
+            <div class="form-check" style="margin-left: 20px; color: #ff6262;">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckFrete"
+                style="border-color: #ff6262;">
+              <label class="form-check-label" for="flexCheckFrete">
+                Frete Pago
+              </label>
+            </div>
+          </div>
           <div class="row">
             <div class="col-md-6">
               <label class="form-label">Escolha a imagem:</label>
@@ -98,7 +107,7 @@
           <div class="form-floating">
             <textarea class="form-control" placeholder="Observações:" id="observacaoInput" name="observacao"
               style="height: 100px"></textarea>
-            <label for="observacaoInput">Horário De Saida e Observações:</label>
+            <label for="observacaoInput">Observações e Horário De Saida:</label>
           </div>
 
         </div>
@@ -148,6 +157,21 @@
   <script src="./src/script.js"></script>
 
   <script>
+    document.getElementById("flexCheckFrete").addEventListener("change", function () {
+      const observacaoInput = document.getElementById("observacaoInput");
+      const textoFrete = "Frete Pago";
+
+      if (this.checked) {
+        // Se marcado, adiciona "Frete Pago" no início, mantendo qualquer outro texto já inserido
+        if (!observacaoInput.value.includes(textoFrete)) {
+          observacaoInput.value = textoFrete + (observacaoInput.value ? " - " + observacaoInput.value : " ");
+        }
+      } else {
+        // Se desmarcado, remove "Frete Pago"
+        observacaoInput.value = observacaoInput.value.replace(textoFrete + " - ", "").replace(textoFrete, "").trim();
+      }
+    });
+
     document.getElementById("corSetorSelect").addEventListener("change", function () {
       const setorSelecionado = this.value;
       const localizacaoInput = document.getElementById("localizacaoInput");
