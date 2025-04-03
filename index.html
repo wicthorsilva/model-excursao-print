@@ -21,11 +21,8 @@
   <section class="containerPage">
     <div class="btnModa">
       <a target="_blank" href="https://omodacenter.com.br/excursoes">Site Excursões Moda Center</a>
-      <iframe class="iframe" src="https://omodacenter.com.br/excursoes" 
-            width="550" 
-            height="90%" 
-            frameborder="0">
-    </iframe>
+      <iframe class="iframe" src="https://omodacenter.com.br/excursoes" width="550" height="90%" frameborder="0">
+      </iframe>
 
     </div>
     <div class="containerForm">
@@ -40,10 +37,12 @@
                 <option value="">Selecione a Loja</option>
                 <option style="background-color: #0000a3; color: #ffffff;" value="mitchs">MITCHS</option>
                 <option style="background-color: #000000; color: #ffffff;" value="ecommerce">ECOMMERCE</option>
-                <option style="background-color: #8e15ff; color: #ffffff;" value="caruaru-centro">CARUARU CENTRO</option>
+                <option style="background-color: #8e15ff; color: #ffffff;" value="caruaru-centro">CARUARU CENTRO
+                </option>
                 <option style="background-color: #ff4746; color: #ffffff;" value="caruaru-polo">CARUARU POLO</option>
                 <option style="background-color: #ff27e2; color: #ffffff;" value="toritama-br">TORITAMA BR</option>
-                <option style="background-color: #606d80; color: #ffffff;" value="toritama-parque">TORITAMA PARQUE</option>
+                <option style="background-color: #606d80; color: #ffffff;" value="toritama-parque">TORITAMA PARQUE
+                </option>
                 <option style="background-color: #7f440a; color: #ffffff;" value="mega-loja">MEGA LOJA</option>
                 <option style="background-color: #ff8d7b; color: #ffffff;" value="moda-rota">MODA-ROTA</option>
                 <option style="background-color: #00fffd; color: #000000;" value="moda-haus">MODA-HAUS</option>
@@ -70,12 +69,12 @@
               <label class="form-label">Cor do Setor:</label>
               <select class="form-control" id="corSetorSelect" name="corSetor">
                 <option value="">Selecione a cor do setor</option>
-                <option style="background-color: #ff9100;" value="orange">Laranja</option>
-                <option style="background-color: #00ad00;" value="green">Verde</option>
-                <option style="background-color: #F3F3F3;" value="lightgray">Branco</option>
-                <option style="background-color: #FFFF00;" value="yellow">Amarelo</option>
-                <option style="background-color: #FF0000;" value="red">Vermelho</option>
-                <option style="background-color: #40CFFF;" value="blue">Azul</option>
+                <option style="background-color: #ff9100;" value="Laranja">Laranja</option>
+                <option style="background-color: #00ad00;" value="Verde">Verde</option>
+                <option style="background-color: #F3F3F3;" value="Branco">Branco</option>
+                <option style="background-color: #FFFF00;" value="Amarelo">Amarelo</option>
+                <option style="background-color: #FF0000;" value="Vermelho">Vermelho</option>
+                <option style="background-color: #40CFFF;" value="Azul">Azul</option>
               </select>
             </div>
             <div class="col-md-6">
@@ -91,7 +90,7 @@
           </div>
           <div class="col-md-12">
             <label for="localizacaoInput" class="form-label">Localização:</label>
-            <input type="text" class="form-control" id="localizacaoInput" name="localizacao" placeholder="Vaga e setor"
+            <input type="text" class="form-control" id="localizacaoInput" name="localizacao" placeholder="Setor e Vaga"
               aria-label="Vaga e setor" required>
           </div>
 
@@ -140,13 +139,31 @@
         <button type="submit" id="preencherBtn">Enviar</button>
       </form>
     </div>
-    
+
     <div class="imgMapeamento">
       <img src="./src/assets/img/setores-excursoes.png" alt="img">
       <span style="color: #F3F3F3;">Abra a imagem em nova guia</span>
     </div>
   </section>
   <script src="./src/script.js"></script>
+
+  <script>
+    document.getElementById("corSetorSelect").addEventListener("change", function () {
+      const setorSelecionado = this.value;
+      const localizacaoInput = document.getElementById("localizacaoInput");
+
+      if (setorSelecionado) {
+        // Remove o setor antigo mantendo outras informações digitadas
+        const outrasInfo = localizacaoInput.value.replace(/^Setor \S+ - /, "").trim();
+
+        // Define o novo valor com "Setor [cor] - " na frente
+        localizacaoInput.value = "Setor " + setorSelecionado + " - " + (outrasInfo ? outrasInfo : "");
+      } else {
+        localizacaoInput.value = ""; // Se nenhuma opção for selecionada, limpa o campo
+      }
+    });
+
+  </script>
 
 </body>
 
