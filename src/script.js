@@ -1,5 +1,5 @@
 const parametros = [
-    "nameloja", "vendedor", "numberPedido", "image", "excursao", "corSetor", "contatos", "localizacao",
+    "nameloja", "vendedor", "numberPedido", "image", "excursao", "corSetor", "contatos", "localizacao", "vaga",
     "observacao", "destinatario", "contatosDest", "localizacaoDest", "observacaoDest"
 ];
 
@@ -103,6 +103,6 @@ function gerarPDF() {
     });
 }
 
-function imprimirDocumento() {
-    gerarPDF();
-}
+// function imprimirDocumento() {
+//     gerarPDF();
+// }

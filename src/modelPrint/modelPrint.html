@@ -47,12 +47,15 @@
             </div>
 
             <div class="containerInfoExcursao">
-                <div class="infoExcursao"><img src="./img/whatsapp-icon.png" alt="contatoIMG"> <span
-                        id="contatos"></span></div>
-
-                <div class="infoExcursao"><img src="./img/local-icon.png" alt="local-Img">
-                    <h4 style="margin-left: 0.4rem;" id="nameModaCenter"></h4 style="margin-left: 0.4rem;"> <span
-                        id="localizacao"></span>
+                <div class="infoExcursao">
+                    <img src="./img/whatsapp-icon.png" alt="contatoIMG"> <span id="contatos"></span>
+                </div>
+                <div class="infoExcursao">
+                    <img src="./img/local-icon.png" alt="local-Img">
+                    <h4 id="nameModaCenter"></h4>
+                    <span id="localizacao"></span>
+                    <span>Vaga:</span>
+                    <span id="vaga"></span>
                 </div>
 
                 <div class="infoExcursao">
@@ -78,8 +81,15 @@
     <div class="buttons">
         <button id="editarBtn">Editar</button>
         <button id="voltarBtn">Página Inicial</button>
-        <button id="imprimirBtn" onclick="imprimirDocumento()">Gerar PDF para Imprimir</button>
+        <button id="imprimirBtn" onclick="imprimirDocumento()">Imprimir</button>
     </div>
+
+    <script>
+        function imprimirDocumento() {
+            window.print();
+        }
+    </script>
+
 
     <script>
 
@@ -114,7 +124,8 @@
             "Branco": "#F3F3F3", // Cinza Claro
             "Amarelo": "#FFFF00",   // Amarelo
             "Vermelho": "#FF0000",      // Vermelho
-            "Azul": "#40CFFF"      // Azul
+            "Azul": "#40CFFF",      // Azul
+            "Altas_Horas": "#2e2e2e" // Altas Horas
         };
 
 
@@ -126,6 +137,9 @@
             if (selectedLoja === "moda-haus") {
                 identificLoja.style.color = "#000000";
                 identificVendedor.style.color = "#000000";
+            }
+            if (selectedCorSetor === "Altas_Horas"){
+                nameExcursaoElement.style.color = "#FFFFFF";
             }
         }
 

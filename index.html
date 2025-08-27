@@ -84,6 +84,7 @@
                 <option style="background-color: #FFFF00;" value="Amarelo">Amarelo</option>
                 <option style="background-color: #FF0000;" value="Vermelho">Vermelho</option>
                 <option style="background-color: #40CFFF;" value="Azul">Azul</option>
+                <option style="background-color: #2e2e2e; color: #FFFFFF;" value="Altas_Horas">Altas Horas</option>
               </select>
             </div>
             <div class="col-md-6">
@@ -97,10 +98,18 @@
                 placeholder="(99) 9 9999-9999 / (99) 9 9999-9999" aria-label="(99) 9 9999-9999">
             </div>
           </div>
-          <div class="col-md-12">
-            <label for="localizacaoInput" class="form-label">Localização:</label>
-            <input type="text" class="form-control" id="localizacaoInput" name="localizacao" placeholder="Setor e Vaga"
-              aria-label="Vaga e setor" required>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="localizacaoInput" class="form-label">Setor:</label>
+              <input type="text" class="form-control" id="localizacaoInput" name="localizacao" placeholder="Setor"
+                aria-label="Setor" required>
+            </div>
+
+            <div class="col-md-6">
+              <label for="vagaInput" class="form-label">Vaga:</label>
+              <input type="text" class="form-control" id="vagaInput" name="vaga" placeholder="Vaga" aria-label="Vaga"
+                required>
+            </div>
           </div>
 
 

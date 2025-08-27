@@ -33,7 +33,6 @@ img {
 
 .lojaInfo {
     width: 690px;
-    /* background-color: rgb(255, 0, 0); */
     height: 40px;
     margin-bottom: 2rem;
     border-radius: 10px;
@@ -139,6 +138,7 @@ span {
 
 #observacao {
     word-wrap: break-word;
+    white-space: pre-line;
     color: #E30613;
     font-size: 27px;
     /* margin-top: 0.2rem; */
@@ -147,6 +147,7 @@ span {
 
 #observacaoDest {
     word-wrap: break-word;
+    white-space: pre-line;
     color: #E30613;
     font-size: 26px;
     line-height: 1.9rem;
@@ -154,21 +155,30 @@ span {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+@page {
+  margin: 10mm; 
+}
+
 @media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
     .documento {
         /* margin-top: 2rem; */
-        font-size: 12pt;
+        font-size: 10pt;
         width: 100%;
-        height: 1160px;
+        height: auto;
     }
 
     .section01Excursao {
         display: flex;
     }
 
-    #nameModaCenter {
+    /* #nameModaCenter {
         width: 167px;
-    }
+    } */
 
     #localizacao {
         word-wrap: break-word;
@@ -192,8 +202,8 @@ span {
         background-color: #fff;
     }
 
-    button {
-        display: none;
+    .buttons {
+        display: none !important;
     }
 
 
@@ -204,7 +214,7 @@ span {
 #imprimirBtn {
     align-items: center;
     background-clip: padding-box;
-    background-color: #fa6400;
+    background-color: #dd6414;
     border: 1px solid transparent;
     border-radius: .25rem;
     box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
