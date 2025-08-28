@@ -136,6 +136,13 @@ span {
     margin-top: 0.5rem;
 }
 
+.infoExcursaoText{
+    display: inline-block;
+}
+.infoSetor, .infoVaga{
+    display: inline-block;
+}
+
 #observacao {
     word-wrap: break-word;
     white-space: pre-line;
