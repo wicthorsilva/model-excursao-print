@@ -133,14 +133,33 @@ button {
 }
 
 .boxError {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    background-color: aliceblue;
-    padding: 3rem;
+    background: #fff8f8;
+    border: 1px solid #ff4d4d;
+    color: #333;
+    padding: 2rem;
     margin-top: 2rem;
-    border-radius: .5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
-.boxError img{
-    height: 80px;
+
+.boxError img {
+    height: 70px;
+    margin-bottom: 1rem;
+}
+
+.boxError h6 {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #b30000;
+    font-weight: 600;
 }
 
 .btnModa{
